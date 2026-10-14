@@ -1,0 +1,34 @@
+# Render Blueprint: Render reads this file and sets up the server for you.
+# See DEPLOY.md for the click-by-click steps.
+services:
+  - type: web
+    name: appetite-of-the-mind
+    runtime: python
+    plan: starter            # needed for the persistent disk (~$7/month)
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -b 0.0.0.0:$PORT app.server:app
+    healthCheckPath: /api/stats
+    disk:
+      name: campaign-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.6
+      - key: DB_PATH
+        value: /var/data/campaign.db
+      - key: CURRENCY
+        value: eur
+      - key: BASE_AMOUNT_CENTS
+        value: "200"
+      - key: GOAL_SUPPORTERS
+        value: "1000000"
+      - key: DASHBOARD_KEY
+        generateValue: true  # Render makes a random one; copy it from the Environment tab
+      - key: PUBLIC_URL
+        sync: false          # you'll be asked for this on first deploy
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false

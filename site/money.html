@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Money | Appetite of the Mind</title>
+  <meta name="description" content="Every euro, in public: what the album costs, what's been raised, and what unlocks next.">
+  <meta name="theme-color" content="#0b0a0f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script><script src="/layout.js" defer></script><script src="/pages.js" defer></script>
+</head>
+<body data-page="money">
+<header class="page-head">
+  <div class="hero" style="position:absolute;inset:0;padding:0;z-index:-1"><div class="blob"></div></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="live-dot"></span>Live · Full transparency</div>
+    <h1>Where every<br><span class="accent">€2</span> goes.</h1>
+    <p class="lead">No mystery. Here's what the album costs, how much has come in, and what that money pays for, in order.</p>
+    <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><b data-stat="raised">€0</b><small>raised</small></div>
+      <div class="stat"><b id="budget-total">€0</b><small>album budget</small></div>
+      <div class="stat"><b id="budget-pct">0%</b><small>funded</small></div>
+    </div>
+  </div>
+</header>
+
+<section class="block" style="padding-top:30px">
+  <div class="wrap grid-2">
+    <div>
+      <div class="eyebrow">The budget</div>
+      <h2>Paid in order, top to bottom.</h2>
+      <p class="muted">The first euros go to studio time. Each bar fills up as money arrives.</p>
+    </div>
+    <div id="budget"></div>
+  </div>
+</section>
+
+<section class="block alt" id="milestones">
+  <div class="wrap">
+    <div class="eyebrow">Unlocks</div>
+    <h2>The more of us, the more you get.</h2>
+    <p class="lead" style="margin-bottom:30px">Every milestone unlocks something for <em>everyone</em> who's given, at any amount.</p>
+    <ul class="milestones" id="milestone-list"></ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap grid-2">
+    <div><h2>Fees, honestly.</h2></div>
+    <p class="lead">Stripe (the payment processor) takes roughly €0.25 + 1.5% per payment, so a €2 gift lands as about €1.72.
+      If you'd like more of it to reach the album, the €5 option helps a lot. But €2 is the whole idea, and it's
+      genuinely enough. Income is declared and taxed like any other artist income.</p>
+  </div>
+</section>
+</body>
+</html>

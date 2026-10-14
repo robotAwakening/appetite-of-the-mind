@@ -59,6 +59,7 @@
     const t = m.totals;
     const tiles = [
       ["Visits", t.visits], ["Checkouts started", t.checkouts], ["Supporters", t.supporters],
+      ["Self-declared millionaires", t.millionaires],
       ["Raised", money(t.total_cents)], ["Visit → paid", pct(t.supporters, t.visits)],
       ["Checkout → paid", pct(t.supporters, t.checkouts)], ["Avg. gift", t.supporters ? money(t.total_cents / t.supporters) : "–"],
       ["Subscribers", t.subscribers],

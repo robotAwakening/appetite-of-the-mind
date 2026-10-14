@@ -10,4 +10,4 @@ What the money did: [studio day booked / mixing started / a snippet you can hear
 If you know one person who'd enjoy this, forward it to them. That's how this grows.
 
 Thank you,
-[ARTIST NAME]
+Appetite of the Mind

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Wall | Appetite of the Mind</title>
+  <meta name="description" content="Everyone who fed the Appetite: names, countries, messages. Live.">
+  <meta name="theme-color" content="#0b0a0f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script><script src="/layout.js" defer></script><script src="/pages.js" defer></script>
+</head>
+<body data-page="wall">
+<header class="page-head">
+  <div class="hero" style="position:absolute;inset:0;padding:0;z-index:-1"><div class="blob"></div><div class="blob two"></div></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="live-dot"></span>Updates live</div>
+    <h1>The <span class="accent">Wall.</span></h1>
+    <p class="lead">Every name here is going in the album credits. <span class="gold">★ Gold</span> means the person says they're a millionaire.
+      We believe them.</p>
+    <div class="stats">
+      <div class="stat"><b data-stat="supporters">0</b><small>supporters</small></div>
+      <div class="stat"><b data-stat="countries">0</b><small>countries</small></div>
+      <div class="stat is-gold"><b data-stat="millionaires">0</b><small>millionaires</small></div>
+      <div class="stat"><b data-stat="raised">€0</b><small>raised</small></div>
+    </div>
+  </div>
+</header>
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <div class="filters" role="tablist">
+      <button class="active" data-filter="all" role="tab" aria-selected="true">Everyone</button>
+      <button data-filter="mil" role="tab" aria-selected="false">★ Millionaires</button>
+      <button data-filter="msg" role="tab" aria-selected="false">With a message</button>
+    </div>
+    <ul class="wall" id="wall-list"></ul>
+  </div>
+</section>
+</body>
+</html>

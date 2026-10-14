@@ -7,11 +7,11 @@ and what makes journalists write about it. The project is the content.
 Rule of thumb: **a live, rising number plus a human story beats any ad.** Post the counter often.
 
 ## Week 0: before launch
-- [ ] Fill in every `[EDIT]` / `[ARTIST NAME]` placeholder in `site/`.
-- [ ] Make a 1200×630 `site/og-image.png`: big "€2", your face or cover art, the line "Asking every millionaire on Earth".
-      This is what shows up in every WhatsApp, X and LinkedIn preview, so it matters a lot.
-- [ ] Put a real track or a 30-second studio clip in the "Hear what you're funding" section.
-- [ ] Deploy (see README) and run a €2 payment yourself in Stripe **test mode**, then in live mode.
+- [ ] Fill in `site/config.js` and every `EDIT` spot in `site/` (see DEPLOY.md, Step 1).
+- [ ] Check `site/og-image.png`. It's what shows up in every WhatsApp, X and LinkedIn preview, so it matters a lot.
+      A version with your face or cover art converts even better (edit `scripts/make_og_image.py`).
+- [ ] Add the YouTube IDs of your three Risk of Rain songs so the Music page plays them.
+- [ ] Deploy (see DEPLOY.md) and run a €2 payment yourself in Stripe **test mode**, then in live mode.
 - [ ] Run `python scripts/make_links.py https://yourdomain` and use those links everywhere.
 - [ ] Line up 10–20 friends to give in the first hour. A counter stuck at 0 kills momentum; one at 23 invites people in.
 

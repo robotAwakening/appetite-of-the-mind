@@ -11,7 +11,7 @@ Hi [Name],
 
 I read your piece on [their article] and thought this might be up your street.
 
-I'm [ARTIST NAME], a [genre] musician based in [Turku/city]. There are roughly 60 million millionaires in the world.
+I make [genre] music as Appetite of the Mind (formerly Risk of Rain), based in [city], Finland. There are roughly 60 million millionaires in the world.
 Instead of pitching labels, I've started publicly asking each of them, and anyone else, for €2 to fund my debut album:
 [LINK]
 
@@ -22,7 +22,7 @@ It's partly a funding experiment and partly an art piece about what the internet
 I'm happy to share the full data (which platforms convert, and where the supporters come from), plus audio, photos or an interview.
 
 Thanks for reading,
-[ARTIST NAME]
+Appetite of the Mind
 [phone] · [LINK]
 
 ---

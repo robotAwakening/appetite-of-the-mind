@@ -3,97 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- EDIT: title, descriptions and the og:url / og:image values -->
-  <title>Two Euros for an Album</title>
-  <meta name="description" content="I'm asking the world's millionaires (and everyone else) for €2 each to fund my debut album. Watch the counter live.">
-  <meta property="og:title" content="One artist. €2 each. Can the internet fund an album?">
-  <meta property="og:description" content="Every supporter is counted live. Your name goes on the wall and in the album credits.">
+  <title>Appetite of the Mind | Dear Millionaires, It's €2</title>
+  <meta name="description" content="One musician is asking every millionaire on Earth for €2 to fund an album. Live counter, public wall, and your name in the credits.">
+  <meta name="theme-color" content="#0b0a0f">
+  <!-- EDIT: replace https://example.com with your real domain once deployed -->
+  <meta property="og:title" content="Dear millionaires, it's €2.">
+  <meta property="og:description" content="One artist is asking ~60 million millionaires for €2 each to fund an album. Watch the counter live.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://example.com/">
   <meta property="og:image" content="https://example.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script>
+  <script src="/layout.js" defer></script>
+  <script src="/home.js" defer></script>
 </head>
-<body>
-  <header class="hero">
-    <p class="eyebrow">An open experiment in funding art</p>
-    <h1>There are ~60 million millionaires on Earth.<br>I'm asking each of them for <span class="accent">€2</span>.</h1>
-    <p class="lede">
-      <!-- EDIT: your story, in your own words -->
-      I'm <strong>[ARTIST NAME]</strong>, a musician making my first album. Instead of waiting for a label,
-      I'm running this in public: €2 from anyone who wants to be part of it. Millionaires, students, your aunt.
-      Every euro is counted live below, and every supporter is credited on the record.
-    </p>
+<body data-page="home" data-no-cta>
 
-    <div class="counter" aria-live="polite">
-      <div><span id="supporters">0</span><small>supporters</small></div>
-      <div><span id="raised">€0</span><small>raised</small></div>
-      <div><span id="countries">0</span><small>countries</small></div>
+<header class="hero">
+  <div class="blob"></div><div class="blob two"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="live-dot"></span>Live experiment · Appetite of the Mind</div>
+    <h1>Dear millionaires,<br>it's <span class="accent">€2.</span></h1>
+    <p class="hero-sub">There are about <strong>60 million</strong> of you on Earth. I'm one musician with one album to make.
+      So I'm asking every single one of you for two euros. You don't have to be a millionaire to join in.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#give">Feed the Appetite: €2</a>
+      <a class="btn" href="/music">▶ Hear the music first</a>
     </div>
-    <div class="progress" role="progressbar" aria-label="Progress toward goal">
-      <div id="progress-bar"></div>
-    </div>
-    <p class="goal-label">Goal: <span id="goal">1,000,000</span> supporters</p>
-  </header>
 
-  <main>
-    <section class="card" id="give">
-      <h2>Chip in</h2>
+    <div class="stats">
+      <div class="stat"><b data-stat="supporters">0</b><small>people fed the Appetite</small></div>
+      <div class="stat"><b data-stat="raised">€0</b><small>raised so far</small></div>
+      <div class="stat"><b data-stat="countries">0</b><small>countries</small></div>
+      <div class="stat is-gold"><b data-stat="millionaires">0</b><small>self-declared millionaires</small></div>
+    </div>
+    <div class="meter">
+      <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+      <div class="meter-label"><span id="meter-left">0 / 1,000,000 supporters</span><span id="meter-right">0%</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="eyebrow">The maths</div>
+    <div class="maths reveal">
+      <span>60,000,000</span><span class="op">×</span><span class="accent">€2</span><span class="op">=</span><span>€120,000,000</span>
+    </div>
+    <p class="lead reveal" style="margin-top:28px">I need about <strong id="need">€9,500</strong> to make the album properly.
+      That means if just <strong class="accent" id="need-pct">0.008%</strong> of the world's millionaires say yes, it happens.
+      The other 99.99% can keep their coins. Everyone else is very welcome too.</p>
+  </div>
+</section>
+
+<section class="block" id="give">
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <div class="eyebrow">Chip in</div>
+      <h2>Two euros.<br>Your name on an album.</h2>
+      <p class="lead">That's less than a coffee, and it buys you a permanent spot in the credits of a real record,
+        a place on the public wall, and the warm feeling of having funded art on purpose.</p>
+      <div class="grid-3" style="margin-top:28px;grid-template-columns:1fr">
+        <div class="card"><h3>✦ In the credits</h3><p class="muted">Every supporter who wants it gets credited on the album. Every one.</p></div>
+        <div class="card"><h3>✦ On the wall</h3><p class="muted">Your name, your country, and a message, live on <a href="/wall">the wall</a>.</p></div>
+        <div class="card"><h3>✦ Unlock stuff</h3><p class="muted">Demos, live sessions and bonus tracks <a href="/money#milestones">unlock as we grow</a>.</p></div>
+      </div>
+    </div>
+
+    <div class="give reveal" id="give-box">
+      <h3 style="font-size:30px">Feed the Appetite</h3>
+      <p class="fine" style="margin:4px 0 0">Pick an amount. €2 is the whole idea. Anything more is a bonus.</p>
       <div class="amounts" role="radiogroup" aria-label="Amount">
-        <button type="button" data-amount="200" class="active">€2</button>
-        <button type="button" data-amount="500">€5</button>
-        <button type="button" data-amount="2000">€20</button>
-        <button type="button" data-amount="10000">€100<small>if you really are a millionaire</small></button>
+        <button type="button" data-amount="200" class="active" role="radio" aria-checked="true">€2<small>the ask</small></button>
+        <button type="button" data-amount="500" role="radio" aria-checked="false">€5<small>a coffee</small></button>
+        <button type="button" data-amount="2000" role="radio" aria-checked="false">€20<small>a hero</small></button>
+        <button type="button" data-amount="10000" role="radio" aria-checked="false">€100<small>a legend</small></button>
       </div>
-      <label>Name for the wall and the album credits <input id="name" maxlength="40" placeholder="Optional"></label>
-      <label>A message <input id="message" maxlength="140" placeholder="Optional"></label>
-      <label class="check"><input type="checkbox" id="wall" checked> Show my name publicly</label>
-      <button id="pay" class="primary">Give €2</button>
-      <p class="fine">Secure payment through Stripe. Cards, Apple Pay and Google Pay all work.</p>
+      <label class="field">Name for the wall &amp; credits
+        <input id="name" maxlength="40" placeholder="e.g. Ana from Valencia" autocomplete="nickname"></label>
+      <label class="field">Leave a message (optional)
+        <input id="message" maxlength="140" placeholder="Make the bridge in track 3 longer"></label>
+      <label class="check"><input type="checkbox" id="wall" checked> Show my name on the public wall</label>
+      <label class="check millionaire-toggle" id="mil-wrap"><input type="checkbox" id="millionaire">
+        <span><b>I'm a millionaire.</b> <span class="muted">Honour system. You get a gold star on the wall and count toward the millionaire counter.</span></span></label>
+      <button id="pay" class="btn btn-primary btn-block" style="margin-top:10px;font-size:18px;padding:17px">Give €2 →</button>
+      <p class="fine center" style="margin:12px 0 0">🔒 Secure checkout by Stripe · Card, Apple Pay, Google Pay</p>
       <p class="error" id="pay-error" hidden></p>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="card" id="share">
-      <h2>Can't give? Share it. That's worth more.</h2>
-      <p>Every share is tracked separately, so I can see which corner of the internet showed up.</p>
-      <div class="share-buttons">
-        <a data-share="x" target="_blank" rel="noopener">Post on X</a>
-        <a data-share="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-        <a data-share="reddit" target="_blank" rel="noopener">Reddit</a>
-        <a data-share="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        <a data-share="facebook" target="_blank" rel="noopener">Facebook</a>
-        <button type="button" id="copy-link">Copy link</button>
-      </div>
-    </section>
+<section class="block alt">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <div class="grid-3">
+      <div class="card reveal"><div class="big-num">01</div><h3>You give €2</h3><p class="muted">Or more. It takes 20 seconds with Apple Pay.</p></div>
+      <div class="card reveal"><div class="big-num">02</div><h3>You hit the wall</h3><p class="muted">Your name shows up live, and the counter ticks up for everyone watching.</p></div>
+      <div class="card reveal"><div class="big-num">03</div><h3>The album gets made</h3><p class="muted">Every euro is tracked publicly on <a href="/money">The Money</a> page. You get to hear it first.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section class="card" id="listen">
-      <h2>Hear what you're funding</h2>
-      <!-- EDIT: paste a SoundCloud / Spotify / YouTube embed here -->
-      <p class="muted">[Embed a track or a studio clip here]</p>
-    </section>
+<section class="block">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px">
+      <div><div class="eyebrow"><span class="live-dot"></span>Latest on the wall</div><h2 style="margin:0">They fed the Appetite.</h2></div>
+      <a class="btn" href="/wall">See the whole wall →</a>
+    </div>
+    <ul class="wall" id="wall-preview"></ul>
+  </div>
+</section>
 
-    <section class="card" id="follow">
-      <h2>Follow the album being made</h2>
+<section class="block alt">
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <div class="eyebrow">Can't give?</div>
+      <h2>Share it. Honestly, that's worth more.</h2>
+      <p class="lead">Somewhere in your contacts there's a person who'd find this hilarious, and maybe one who's quietly a millionaire.
+        Send it to them.</p>
+      <div class="share" id="share" style="margin-top:22px"></div>
+    </div>
+    <div class="card reveal">
+      <h3>Follow the album being made</h3>
+      <p class="muted">Updates at milestones only: demos, studio clips, release day. No spam, ever.</p>
       <form id="subscribe">
-        <input type="email" id="email" required placeholder="you@example.com" aria-label="Email">
+        <input class="input" type="email" id="email" required placeholder="you@example.com" aria-label="Email">
         <label class="check"><input type="checkbox" id="consent" required>
-          I want to receive occasional emails about this music project. I can unsubscribe at any time.</label>
-        <button class="primary" type="submit">Subscribe</button>
+          <span>I want to receive occasional emails about this music project. I can unsubscribe at any time.</span></label>
+        <button class="btn btn-primary btn-block" type="submit">Keep me posted</button>
         <p class="fine" id="sub-status" aria-live="polite"></p>
       </form>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="wall-section">
-      <h2>The wall</h2>
-      <ul id="wall-list" class="wall"></ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>Payments go straight to the artist through Stripe. Nothing here is a business or investment, just support for an album.
-      <!-- EDIT: contact email + privacy note -->
-      Contact: [your@email] · <a href="privacy.html">Privacy</a></p>
-  </footer>
-  <script src="app.js"></script>
 </body>
 </html>

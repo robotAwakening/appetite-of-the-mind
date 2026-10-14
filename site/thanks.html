@@ -3,26 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thank You</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Thank You | Appetite of the Mind</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b0a0f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script><script src="/layout.js" defer></script><script src="/pages.js" defer></script>
 </head>
-<body>
-  <header class="hero">
-    <p class="eyebrow">Payment received</p>
-    <h1>You're on the album. <span class="accent">Thank you.</span></h1>
-    <p class="lede">Your name will show up on the wall within a minute (if you chose to show it).
-      The most useful thing you can do next is send this to one person who'd get a kick out of it.</p>
-    <div class="share-buttons">
-      <a id="x" target="_blank" rel="noopener">Tell X I did it</a>
-      <a id="wa" target="_blank" rel="noopener">Send on WhatsApp</a>
-      <a href="/">Back to the counter</a>
+<body data-page="thanks" data-no-cta>
+<header class="hero">
+  <div class="blob"></div><div class="blob two"></div>
+  <div class="wrap">
+    <div class="eyebrow">Payment received ✓</div>
+    <h1>You fed the<br><span class="accent">Appetite.</span></h1>
+    <p class="hero-sub">Thank you, genuinely. If you chose to show your name, it'll pop up on <a href="/wall">the wall</a> within a minute,
+      and it's going in the album credits.</p>
+    <div class="card" style="max-width:640px;margin-top:10px">
+      <h3>One more tiny favour?</h3>
+      <p class="muted">The single most useful thing now: send this to <strong>one</strong> person who'd find it funny.
+        That's how this grows.</p>
+      <div class="share" id="share"></div>
     </div>
-  </header>
-  <script>
-    const t = "I just gave €2 to help fund an album, along with (hopefully) every millionaire on Earth. Your turn:";
-    const u = location.origin + "/?utm_source=thanks-share";
-    document.getElementById("x").href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(u);
-    document.getElementById("wa").href = "https://wa.me/?text=" + encodeURIComponent(t + " " + u);
-  </script>
+    <div class="hero-ctas" style="margin-top:30px">
+      <a class="btn" href="/wall">See the wall</a>
+      <a class="btn" href="/music">Listen to the music</a>
+    </div>
+  </div>
+</header>
 </body>
 </html>

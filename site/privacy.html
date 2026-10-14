@@ -3,25 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Privacy | Appetite of the Mind</title>
+  <meta name="theme-color" content="#0b0a0f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script><script src="/layout.js" defer></script>
 </head>
-<body>
-  <main style="padding-top:48px">
-    <h1>Privacy</h1>
-    <!-- EDIT: fill in your name and contact email. This is a plain-language starting point, not legal advice. -->
-    <p>This site is run by [ARTIST NAME], [City, Country], contact: [your@email].</p>
-    <h2>Payments</h2>
-    <p>Payments are processed by Stripe. This site never sees your card details. From Stripe it keeps the amount,
-      the country, and the name and message you chose to give, so it can show the counter and the wall.</p>
-    <h2>Mailing list</h2>
-    <p>If you subscribe, your email address, the time you consented and the page that referred you are stored so I can
-      send you project updates. That's the only use. Every email has an unsubscribe link, and you can ask me to delete
-      your data at any time by writing to the address above.</p>
-    <h2>Analytics</h2>
-    <p>The site counts visits per referral source (for example "share-whatsapp"). It does not use cookies,
-      and it doesn't store IP addresses or any other personal data for this.</p>
-    <p><a href="/" style="color:var(--accent)">Back</a></p>
-  </main>
+<body data-page="privacy" data-no-cta>
+<header class="page-head"><div class="wrap"><div class="eyebrow">Privacy</div><h1>Short &amp; <span class="accent">honest.</span></h1></div></header>
+<section class="block" style="padding-top:10px">
+  <div class="wrap faq" style="max-width:820px">
+    <!-- EDIT: put your legal name, city and contact email here. This is a plain-language starting point, not legal advice. -->
+    <p class="lead">This site is run by [YOUR LEGAL NAME], performing as Appetite of the Mind, [City], Finland.
+      Contact: [your@email].</p>
+    <h3 style="margin-top:36px">Payments</h3>
+    <p class="muted">Payments are processed by Stripe, and this site never sees your card details. From Stripe it keeps the amount, your
+      country, and the name, message and "millionaire" choice you entered, so it can show the counter and the wall.</p>
+    <h3 style="margin-top:28px">Mailing list</h3>
+    <p class="muted">If you subscribe, your email address, the time you consented and the link that referred you are stored so I can
+      send you project updates, and for nothing else. Every email has an unsubscribe link, and you can ask me to delete your
+      data at any time by writing to the address above.</p>
+    <h3 style="margin-top:28px">Analytics</h3>
+    <p class="muted">The site counts visits per referral source (for example "share-whatsapp"). It doesn't use tracking cookies
+      or third-party analytics, and it doesn't store IP addresses.</p>
+    <h3 style="margin-top:28px">Embeds &amp; fonts</h3>
+    <p class="muted">Music videos use YouTube's privacy-enhanced mode (youtube-nocookie.com). Fonts load from Google Fonts.</p>
+    <h3 style="margin-top:28px">Your rights</h3>
+    <p class="muted">Under the GDPR you can ask to see, correct or delete your data, and you can complain to the Finnish Data Protection
+      Ombudsman (tietosuoja.fi).</p>
+  </div>
+</section>
 </body>
 </html>

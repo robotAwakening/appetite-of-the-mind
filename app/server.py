@@ -1,4 +1,4 @@
-"""Two Euro Patrons - campaign server.
+﻿"""Two Euro Patrons - campaign server.
 
 Serves the landing page, takes payments through Stripe Checkout, records
 supporters from Stripe webhooks, runs an opt-in mailing list and exposes
@@ -26,6 +26,7 @@ BASE_AMOUNT_CENTS = int(os.getenv("BASE_AMOUNT_CENTS", "200"))
 GOAL_SUPPORTERS = int(os.getenv("GOAL_SUPPORTERS", "1000000"))
 DASHBOARD_KEY = os.getenv("DASHBOARD_KEY", "")
 KOFI_URL = os.getenv("KOFI_URL", "")
+ARTIST_NAME = os.getenv("ARTIST_NAME", "Appetite of the Mind")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY", "")
 
@@ -77,6 +78,12 @@ def db():
 
 with closing(db()) as _c:
     _c.executescript(SCHEMA)
+    # Columns added after the first release; ignore if they already exist.
+    for _ddl in ("ALTER TABLE supporters ADD COLUMN is_millionaire INTEGER DEFAULT 0",):
+        try:
+            _c.execute(_ddl)
+        except sqlite3.OperationalError:
+            pass
 
 
 def clean_channel(value):
@@ -92,9 +99,16 @@ def index():
 
 @app.get("/<path:name>")
 def static_files(name):
-    if name == "dashboard.html":
-        abort(404)  # only reachable through /dashboard
+    if name in ("dashboard", "dashboard.html"):
+        abort(404)  # only reachable through /dashboard?key=...
+    if "." not in name.rsplit("/", 1)[-1] and (SITE_DIR / f"{name}.html").is_file():
+        name += ".html"  # clean URLs: /music -> music.html
     return send_from_directory(SITE_DIR, name)
+
+
+@app.errorhandler(404)
+def not_found(_):
+    return send_from_directory(SITE_DIR, "404.html"), 404
 
 
 @app.get("/dashboard")
@@ -118,19 +132,25 @@ def config():
 
 @app.get("/api/stats")
 def stats():
+    try:
+        limit = min(500, max(0, int(request.args.get("wall", 60))))
+    except ValueError:
+        limit = 60
     with closing(db()) as c:
         row = c.execute(
-            "SELECT COUNT(*) n, COALESCE(SUM(amount_cents),0) total, COUNT(DISTINCT country) countries "
+            "SELECT COUNT(*) n, COALESCE(SUM(amount_cents),0) total, "
+            "COUNT(DISTINCT NULLIF(country,'')) countries, COALESCE(SUM(is_millionaire),0) millionaires "
             "FROM supporters"
         ).fetchone()
         wall = c.execute(
-            "SELECT display_name, message, country, created_at FROM supporters "
-            "WHERE show_on_wall=1 AND display_name != '' ORDER BY id DESC LIMIT 60"
+            "SELECT display_name, message, country, is_millionaire, amount_cents, created_at FROM supporters "
+            "WHERE show_on_wall=1 AND display_name != '' ORDER BY id DESC LIMIT ?", (limit,)
         ).fetchall()
     return jsonify(
         supporters=row["n"],
         total_cents=row["total"],
         countries=row["countries"],
+        millionaires=row["millionaires"],
         goal_supporters=GOAL_SUPPORTERS,
         currency=CURRENCY,
         wall=[dict(r) for r in wall],
@@ -162,6 +182,7 @@ def checkout():
     name = str(data.get("display_name") or "")[:40].strip()
     message = str(data.get("message") or "")[:140].strip()
     show = "1" if data.get("show_on_wall") and name else "0"
+    millionaire = "1" if data.get("is_millionaire") else "0"
 
     session = stripe.checkout.Session.create(
         mode="payment",
@@ -170,11 +191,12 @@ def checkout():
             "price_data": {
                 "currency": CURRENCY,
                 "unit_amount": amount,
-                "product_data": {"name": "Support the album"},
+                "product_data": {"name": f"{ARTIST_NAME}: support the album"},
             },
         }],
-        metadata={"channel": channel, "display_name": name, "message": message, "show_on_wall": show},
-        success_url=f"{PUBLIC_URL}/thanks.html?session_id={{CHECKOUT_SESSION_ID}}",
+        metadata={"channel": channel, "display_name": name, "message": message,
+                  "show_on_wall": show, "is_millionaire": millionaire},
+        success_url=f"{PUBLIC_URL}/thanks?session_id={{CHECKOUT_SESSION_ID}}",
         cancel_url=f"{PUBLIC_URL}/?utm_source={channel}",
         submit_type="donate",
     )
@@ -200,9 +222,10 @@ def stripe_webhook():
             with closing(db()) as c, c:
                 c.execute(
                     "INSERT OR IGNORE INTO supporters(session_id, amount_cents, currency, display_name, message, "
-                    "show_on_wall, channel, country, created_at) VALUES (?,?,?,?,?,?,?,?,?)",
+                    "show_on_wall, is_millionaire, channel, country, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
                     (s["id"], s["amount_total"], s["currency"], md.get("display_name", ""),
                      md.get("message", ""), int(md.get("show_on_wall") == "1"),
+                     int(md.get("is_millionaire") == "1"),
                      clean_channel(md.get("channel")), country, int(time.time())),
                 )
     return "", 200
@@ -232,7 +255,7 @@ def unsubscribe():
     token = request.args.get("token", "")
     with closing(db()) as c, c:
         c.execute("UPDATE subscribers SET unsubscribed_at=? WHERE unsubscribe_token=?", (int(time.time()), token))
-    return redirect("/unsubscribed.html")
+    return redirect("/unsubscribed")
 
 
 # ------------------------------------------------------- private metrics
@@ -263,6 +286,7 @@ def metrics():
         totals = c.execute(
             "SELECT (SELECT COUNT(*) FROM visits) visits, (SELECT COUNT(*) FROM checkouts) checkouts, "
             "(SELECT COUNT(*) FROM supporters) supporters, "
+            "(SELECT COALESCE(SUM(is_millionaire),0) FROM supporters) millionaires, "
             "(SELECT COALESCE(SUM(amount_cents),0) FROM supporters) total_cents, "
             "(SELECT COUNT(*) FROM subscribers WHERE unsubscribed_at IS NULL) subscribers"
         ).fetchone()

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "campaign",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app/server.py"],
+      "port": 8000
+    },
+    {
+      "name": "campaign-demo",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set DB_PATH=data\\demo.db&& set DASHBOARD_KEY=demo&& python app/server.py"],
+      "port": 8000
+    }
+  ]
+}

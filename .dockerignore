@@ -1,0 +1,9 @@
+.env
+.git
+.venv
+venv
+data
+__pycache__
+outreach
+scripts
+.claude
