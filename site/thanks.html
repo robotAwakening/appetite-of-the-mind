@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Payment received</p>
+    <h1>You're on the album. <span class="accent">Thank you.</span></h1>
+    <p class="lede">Your name will show up on the wall within a minute (if you chose to show it).
+      The most useful thing you can do next is send this to one person who'd get a kick out of it.</p>
+    <div class="share-buttons">
+      <a id="x" target="_blank" rel="noopener">Tell X I did it</a>
+      <a id="wa" target="_blank" rel="noopener">Send on WhatsApp</a>
+      <a href="/">Back to the counter</a>
+    </div>
+  </header>
+  <script>
+    const t = "I just gave €2 to help fund an album, along with (hopefully) every millionaire on Earth. Your turn:";
+    const u = location.origin + "/?utm_source=thanks-share";
+    document.getElementById("x").href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(u);
+    document.getElementById("wa").href = "https://wa.me/?text=" + encodeURIComponent(t + " " + u);
+  </script>
+</body>
+</html>

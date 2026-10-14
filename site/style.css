@@ -1,0 +1,44 @@
+:root {
+  --bg: #0f0f12; --fg: #f3f1ec; --muted: #a09d97; --card: #1a1a20;
+  --line: #2c2c34; --accent: #ffcc33; --accent-fg: #111;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.55 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.hero, main, footer { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.hero { padding-top: 64px; padding-bottom: 24px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; color: var(--muted); }
+h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.12; margin: 8px 0 20px; }
+h2 { font-size: 22px; margin: 0 0 12px; }
+.accent { color: var(--accent); }
+.lede { color: #d8d5cf; }
+.counter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0 16px; }
+.counter div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
+.counter span { display: block; font-size: clamp(24px, 6vw, 38px); font-weight: 700; font-variant-numeric: tabular-nums; }
+.counter small, .goal-label, .fine, .muted { color: var(--muted); font-size: 14px; }
+.progress { height: 10px; background: var(--line); border-radius: 99px; overflow: hidden; }
+#progress-bar { height: 100%; width: 0; min-width: 4px; background: var(--accent); transition: width .8s; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin: 20px 0; }
+.amounts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.amounts button { background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; font-size: 20px; font-weight: 700; cursor: pointer; }
+.amounts button small { display: block; font-size: 11px; font-weight: 400; color: var(--muted); }
+.amounts button.active { border-color: var(--accent); color: var(--accent); }
+label { display: block; margin: 10px 0; font-size: 15px; }
+input:not([type=checkbox]) { display: block; width: 100%; margin-top: 4px; padding: 11px 12px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); font-size: 16px; }
+.check { display: flex; gap: 8px; align-items: flex-start; }
+.check input { margin-top: 5px; }
+.primary { width: 100%; margin-top: 12px; padding: 14px; border: 0; border-radius: 10px; background: var(--accent);
+  color: var(--accent-fg); font-size: 18px; font-weight: 700; cursor: pointer; }
+.primary:disabled { opacity: .6; cursor: wait; }
+.error { color: #ff7b72; }
+.share-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.share-buttons a, .share-buttons button { padding: 9px 14px; border: 1px solid var(--line); border-radius: 99px;
+  color: var(--fg); background: transparent; text-decoration: none; font-size: 15px; cursor: pointer; }
+.share-buttons a:hover, .share-buttons button:hover { border-color: var(--accent); }
+.wall { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.wall li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 15px; }
+.wall li em { display: block; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+footer { padding: 40px 16px 60px; color: var(--muted); font-size: 13px; }
+footer a { color: var(--muted); }
