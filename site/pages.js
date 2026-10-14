@@ -74,7 +74,7 @@
     },
 
     thanks() {
-      renderShare($("#share"), "thanks", `I just fed the Appetite: €2 to help fund an album, and my name's going in the credits. Your turn 👇`);
+      renderShare($("#share"), "thanks", `I just fed the Appetite: €1 to help fund an album, and my name's going in the credits. Your turn 👇`);
       confetti();
     },
   };

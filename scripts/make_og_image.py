@@ -47,7 +47,7 @@ def main():
     big = font(BOLD_FONTS, 104)
     d.text((70, 170), "Dear millionaires,", font=big, fill=FG)
     d.text((70, 290), "it's", font=big, fill=FG)
-    d.text((70 + d.textlength("it's ", font=big), 290), "€2.", font=big, fill=ACCENT)
+    d.text((70 + d.textlength("it's ", font=big), 290), "€1.", font=big, fill=ACCENT)
 
     d.text((72, 452), "One musician. ~60,000,000 millionaires. One album.", font=font(REG_FONTS, 34), fill=MUTED)
     d.rounded_rectangle((70, 520, 520, 584), radius=32, fill=ACCENT)

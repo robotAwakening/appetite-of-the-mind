@@ -67,7 +67,7 @@ This is the step that makes payments show up on the counter and the wall.
 5. Render → your service → **Environment** → set `STRIPE_WEBHOOK_SECRET` to that value → **Save** (it redeploys).
 
 ### 3c. Test it
-- Open your site and click **Give €2**. Pay with card `4242 4242 4242 4242`, any future date, any CVC.
+- Open your site and click **Give €1**. Pay with card `4242 4242 4242 4242`, any future date, any CVC.
 - You should land on the thank-you page with confetti, and the counter goes up within a few seconds.
 - Your dashboard: Render → Environment → copy the `DASHBOARD_KEY` value → open `https://<your-site>/dashboard?key=<that value>`.
 
@@ -75,7 +75,7 @@ This is the step that makes payments show up on the counter and the wall.
 Once the test works, switch in **live** mode:
 1. Stripe → toggle off "Test mode", then add a new webhook endpoint (live mode has its own) and copy its new `whsec_...`.
 2. Render → Environment → replace `STRIPE_SECRET_KEY` with `sk_live_...` and `STRIPE_WEBHOOK_SECRET` with the live one.
-3. Make one real €2 payment yourself and refund it from the Stripe dashboard.
+3. Make one real €1 payment yourself and refund it from the Stripe dashboard.
 
 > The test payments stay in the database. To start from a clean counter before launch, use Render → Shell:
 > `rm /var/data/campaign.db`, then restart the service.

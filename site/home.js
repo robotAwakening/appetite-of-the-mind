@@ -1,6 +1,6 @@
 (function () {
   const { S, channel, money, num, stats, renderShare, renderWall, $ } = window.AOTM;
-  let amount = 200;
+  let amount = 100;
 
   // the maths
   const need = S.budget.reduce((a, b) => a + b.eur, 0);

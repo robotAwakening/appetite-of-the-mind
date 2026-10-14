@@ -5,14 +5,14 @@ Use the `press-pitch` tracked link (or one per outlet, e.g. `press-yle`).
 
 ---
 
-**Subject:** Musician publicly asks every millionaire on Earth for €2 to fund an album. Live counter at [N]
+**Subject:** Musician publicly asks every millionaire on Earth for €1 to fund an album. Live counter at [N]
 
 Hi [Name],
 
 I read your piece on [their article] and thought this might be up your street.
 
 I make [genre] music as Appetite of the Mind (formerly Risk of Rain), based in [city], Finland. There are roughly 60 million millionaires in the world.
-Instead of pitching labels, I've started publicly asking each of them, and anyone else, for €2 to fund my debut album:
+Instead of pitching labels, I've started publicly asking each of them, and anyone else, for €1 to fund my debut album:
 [LINK]
 
 Everything is in the open: a live counter, a public wall of supporters, and every one of them credited on the record.

@@ -21,7 +21,7 @@ services:
       - key: CURRENCY
         value: eur
       - key: BASE_AMOUNT_CENTS
-        value: "200"
+        value: "100"
       - key: GOAL_SUPPORTERS
         value: "1000000"
       - key: DASHBOARD_KEY

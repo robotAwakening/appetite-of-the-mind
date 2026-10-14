@@ -1,7 +1,7 @@
-# Appetite of the Mind: *Dear millionaires, it's €2.*
+# Appetite of the Mind: *Dear millionaires, it's €1.*
 
 A public, opt-in crowdfunding site for an independent album. One musician is asking ~60 million millionaires
-(and everyone else) for €2 each, with a live counter, a public wall, and every supporter credited on the record.
+(and everyone else) for €1 each, with a live counter, a public wall, and every supporter credited on the record.
 
 **Pages:** Home · Music · Story · The Money (budget + unlocks) · The Wall · FAQ · Press · Privacy · Thanks · 404
 

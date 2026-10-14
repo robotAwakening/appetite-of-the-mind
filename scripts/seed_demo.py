@@ -25,7 +25,7 @@ import server  # noqa: E402,F401  (creates the schema)
 
 people = [
     ("Ana", "ES", "Make the bridge in track 3 longer", 0), ("Mikko", "FI", "Kiitos, go go go", 0),
-    ("Definitely Not Elon", "US", "Here's your €2. Don't spend it all at once.", 1), ("Lena", "DE", "", 0),
+    ("Definitely Not Elon", "US", "Here's your €1. Don't spend it all at once.", 1), ("Lena", "DE", "", 0),
     ("Jules", "FR", "Saw this on TikTok, love it", 0), ("Sofia", "IT", "", 0), ("Kenji", "JP", "From Osaka with love", 0),
     ("Old Money Margaret", "GB", "My butler insisted.", 1), ("Pablo", "MX", "¡Vamos!", 0), ("Aino", "FI", "", 0),
     ("Rafa", "ES", "Turku represent", 0), ("Priya", "IN", "Art > everything", 0), ("Tom", "AU", "", 0),
@@ -38,7 +38,7 @@ for i, (name, cc, msg, mil) in enumerate(people * 3):
     conn.execute(
         "INSERT INTO supporters(session_id, amount_cents, currency, display_name, message, show_on_wall, is_millionaire, "
         "channel, country, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
-        (f"demo_{i}", rng.choice([200, 200, 200, 500, 2000]) if not mil else 10000, "eur", name, msg, 1, mil,
+        (f"demo_{i}", rng.choice([100, 100, 100, 500, 2000]) if not mil else 10000, "eur", name, msg, 1, mil,
          rng.choice(["tiktok", "reddit", "share-whatsapp", "direct", "instagram-bio"]), cc, now - (45 - i) * 3600),
     )
 for ch, n in (("tiktok", 900), ("reddit", 400), ("share-whatsapp", 300), ("direct", 250), ("instagram-bio", 150)):

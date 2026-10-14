@@ -3,7 +3,7 @@
 Hi!
 
 Quick numbers: [X] supporters so far, [€Z] raised, and people from [Y] countries.
-The most surprising one this week: [a story, e.g. "someone in Chile gave €2 with the message 'for the bridge in track 3'"].
+The most surprising one this week: [a story, e.g. "someone in Chile gave €1 with the message 'for the bridge in track 3'"].
 
 What the money did: [studio day booked / mixing started / a snippet you can hear here: LINK].
 

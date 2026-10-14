@@ -11,7 +11,7 @@ window.SITE = {
   location: "Finland",
   contactEmail: "hello@example.com",  // EDIT: a public contact address
   millionairesOnEarth: 60000000,      // rough global estimate (UBS Global Wealth Report ballpark)
-  ask: 2,                             // euros
+  ask: 1,                             // euros
 
   // EDIT: your profiles. Empty ones are hidden automatically.
   links: {
@@ -55,5 +55,5 @@ window.SITE = {
   ],
 
   // Short text used in share buttons
-  shareText: "This artist is asking every millionaire on Earth for €2 to fund an album. I'm not a millionaire but I'm in 👀",
+  shareText: "This artist is asking every millionaire on Earth for €1 to fund an album. I'm not a millionaire but I'm in 👀",
 };

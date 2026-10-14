@@ -1,6 +1,6 @@
 # Launch plan: how to get this in front of as many people as possible
 
-The hook is the stunt itself: **one artist publicly asking ~60 million millionaires for €2 each.**
+The hook is the stunt itself: **one artist publicly asking ~60 million millionaires for €1 each.**
 It's absurd, it's honest, and it has a live scoreboard. That's what makes people share it,
 and what makes journalists write about it. The project is the content.
 
@@ -11,7 +11,7 @@ Rule of thumb: **a live, rising number plus a human story beats any ad.** Post t
 - [ ] Check `site/og-image.png`. It's what shows up in every WhatsApp, X and LinkedIn preview, so it matters a lot.
       A version with your face or cover art converts even better (edit `scripts/make_og_image.py`).
 - [ ] Add the YouTube IDs of your three Risk of Rain songs so the Music page plays them.
-- [ ] Deploy (see DEPLOY.md) and run a €2 payment yourself in Stripe **test mode**, then in live mode.
+- [ ] Deploy (see DEPLOY.md) and run a €1 payment yourself in Stripe **test mode**, then in live mode.
 - [ ] Run `python scripts/make_links.py https://yourdomain` and use those links everywhere.
 - [ ] Line up 10–20 friends to give in the first hour. A counter stuck at 0 kills momentum; one at 23 invites people in.
 
@@ -30,7 +30,7 @@ Rule of thumb: **a live, rising number plus a human story beats any ad.** Post t
 1. **Post the number.** Every milestone (100, 500, 1,000, first country #20) is a post.
 2. **Check the dashboard daily.** Double down on the channel with the best *visit → paid* rate, and drop the ones at 0%.
 3. **Reply to every comment.** Algorithms reward it, and it turns viewers into supporters.
-4. **Tag famous rich people in public posts, with humour.** "@[billionaire], it's €2. I'll put you on track 1."
+4. **Tag famous rich people in public posts, with humour.** "@[billionaire], it's €1. I'll put you on track 1."
    It's public and playful, and occasionally one of them answers. If one does, that's the whole campaign.
    Keep it light, and stop if someone asks you to.
 5. **Give back:** every 1,000 supporters, release something: a demo, a live stream, a supporters-only track.
